@@ -1,0 +1,12 @@
+.todoBox {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn {
+  font-size: 23px;
+  transition: all 0.3s;
+}
+.btn:hover {
+  transform: scale(1.2);
+}
