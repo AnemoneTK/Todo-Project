@@ -1,0 +1,27 @@
+.inputWarp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputBox {
+  text-align: center;
+  padding: 3px 0px;
+  font-size: 24px;
+}
+.addBtn {
+  border: 2px solid var(--primary);
+  background-color: var(--primary);
+  color: #ffff;
+  font-size: 20px;
+  transition: all 0.3s;
+  padding: 5px 0px;
+  font-weight: 800;
+}
+.addBtn:hover {
+  border: 2px solid var(--primary);
+  background-color: #ffff;
+  color: var(--primary);
+}
+.addBtn:active {
+  transform: scale(0.9);
+}
