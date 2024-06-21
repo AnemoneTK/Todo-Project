@@ -2,11 +2,23 @@
   justify-content: space-around;
   align-items: center;
 }
-
+.title {
+  font-size: clamp(20px, 2vw, 28px);
+}
 .btn {
   font-size: 23px;
   transition: all 0.3s;
 }
 .btn:hover {
   transform: scale(1.2);
+}
+
+.status {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.statusName {
+  font-size: clamp(16px, 2vw, 20px);
 }
