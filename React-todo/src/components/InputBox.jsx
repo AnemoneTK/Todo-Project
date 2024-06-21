@@ -15,6 +15,7 @@ export default function InputBox() {
           setText(e.target.value);
           setHint(false);
         }}
+        maxLength={12}
       />
       <div
         className={`hint text-center text-danger mb-1 ${

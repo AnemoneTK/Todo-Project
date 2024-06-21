@@ -1,6 +1,7 @@
 import InputBox from "./components/InputBox";
 import "./App.css";
 import TodoList from "./components/Todolist";
+import Pagination from "./components/Pagination";
 // import { useEffect, useState } from "react";
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
           <div className="appName mb-5">[React]-Todo App</div>
           <InputBox />
           <TodoList />
+          <Pagination />
         </div>
       </div>
     </>
