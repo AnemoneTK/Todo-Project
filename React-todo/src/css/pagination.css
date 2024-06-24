@@ -22,3 +22,13 @@ button:hover {
 button:active {
   transform: scale(0.9);
 }
+button:disabled {
+  opacity: 0.5;
+}
+button:disabled:hover {
+  background-color: #ffff;
+  color: var(--primary);
+}
+button:disabled:active {
+  transform: none;
+}

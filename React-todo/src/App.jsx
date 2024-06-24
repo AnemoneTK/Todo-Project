@@ -4,6 +4,7 @@ import TodoList from "./components/Todolist";
 import Pagination from "./components/Pagination";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Setting from "./components/Setting";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -33,7 +34,8 @@ export default function App() {
     <>
       <div className="warp container">
         <div className="box col-12 col-md-10 col-lg-10 col-xl-6 rounded-4">
-          <div className="appName mb-3 mb-md-5">[React]-Todo App</div>
+          <Setting />
+          <div className="appName mb-1 mb-sm-3 mb-md-5">[React]-Todo App</div>
           <InputBox />
           <TodoList
             todos={currentTodos}

@@ -7,11 +7,23 @@
   align-items: center;
   justify-content: center;
 }
-@media (max-height: 600px) {
+
+@media (max-height: 800px) {
   .todoList {
     height: 35dvh;
   }
   .isLoading {
     height: 35dvh;
+  }
+}
+@media (max-height: 400px) {
+  .todoList {
+    height: 20dvh;
+  }
+  .isLoading {
+    height: 20dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

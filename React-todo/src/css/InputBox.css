@@ -7,6 +7,7 @@
   text-align: center;
   padding: 3px 0px;
   font-size: clamp(20px, 3vw, 28px);
+  border: 2px solid var(--primary);
 }
 .hint {
   font-size: clamp(16px, 2vw, 20px);

@@ -26,8 +26,10 @@ export default function TodoList({ todos, setTodosPerPage, isLoading }) {
       } else if (height >= 400 && height <= 600) {
         return 2;
       } else if (height > 600 && height <= 800) {
+        return 3;
+      } else if (height > 800 && height < 900) {
         return 4;
-      } else if (height > 800 && height < 1000) {
+      } else if (height > 900 && height < 1000) {
         return 5;
       } else if (height >= 1000 && height < 1100) {
         return 6;
@@ -46,7 +48,7 @@ export default function TodoList({ todos, setTodosPerPage, isLoading }) {
   return (
     <>
       {!isLoading && (
-        <div className="todoList col-10 mt-3 mt-sm-3 mt-lg-4 mb-sm-1 mb-lg-4">
+        <div className="todoList col-10 mt-3 mt-sm-3 mt-lg-4 mb-1 mb-sm-1 mb-md-2 mb-lg-3">
           {todos.map((todo) => {
             return (
               <Todo
@@ -61,7 +63,7 @@ export default function TodoList({ todos, setTodosPerPage, isLoading }) {
       )}
 
       {isLoading && (
-        <div className="isLoading mt-3 mt-sm-3 mt-lg-4 mb-sm-1 mb-lg-4">
+        <div className="isLoading mt-3 mt-sm-3 mt-lg-4 mb-1 mb-sm-1 mb-lg-4">
           <ThreeDots
             visible={true}
             height="80"
@@ -69,7 +71,6 @@ export default function TodoList({ todos, setTodosPerPage, isLoading }) {
             color="#14121f"
             radius="9"
             ariaLabel="three-dots-loading"
-            wrapperStyle={{}}
             wrapperClass="d-flex align-items-center justify-content-center p-0 m-0"
           />
         </div>

@@ -39,7 +39,7 @@ export default function Todo({ id, title, status }) {
 }
 
 Todo.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   title: PropTypes.string,
   status: PropTypes.bool,
 };
