@@ -1,9 +1,17 @@
 .todoList {
   height: 45dvh;
 }
-
+.isLoading {
+  height: 45dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media (max-height: 600px) {
   .todoList {
+    height: 35dvh;
+  }
+  .isLoading {
     height: 35dvh;
   }
 }
