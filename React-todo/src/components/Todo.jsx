@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "../css/todo.css";
-export default function Todo() {
-  const [check, setCheck] = useState(false);
+import PropTypes from "prop-types";
+
+export default function Todo({ title, status }) {
+  const [check, setCheck] = useState(status);
   return (
     <>
       <div className="todoBox d-flex my-1 p-0">
-        <div className="title col-4">Title</div>
+        <div className="title col-4">{title}</div>
         <div
           className="status col-2"
           onClick={(e) => {
@@ -18,8 +20,8 @@ export default function Todo() {
             type="checkbox"
             name="status"
             checked={check}
-            onChange={(e) => {
-              setCheck(e.target.checked);
+            onChange={() => {
+              setCheck(!check);
             }}
           />
           <div className="statusName">{check ? "Done" : "Waiting"}</div>
@@ -32,3 +34,9 @@ export default function Todo() {
     </>
   );
 }
+
+Todo.propTypes = {
+  key: PropTypes.number,
+  title: PropTypes.string,
+  status: PropTypes.bool,
+};
