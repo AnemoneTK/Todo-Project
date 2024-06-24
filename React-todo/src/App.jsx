@@ -34,9 +34,10 @@ export default function App() {
     <>
       <div className="warp container">
         <div className="box col-12 col-md-10 col-lg-10 col-xl-6 rounded-4">
-          <Setting />
+          {/* <Setting /> */}
           <div className="appName mb-1 mb-sm-3 mb-md-5">[React]-Todo App</div>
           <InputBox />
+          <div className="mt-3 mb-0">จัดเรียง</div>
           <TodoList
             todos={currentTodos}
             setTodosPerPage={setTodosPerPage}

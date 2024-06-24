@@ -7,8 +7,8 @@ export default function Todo({ id, title, status }) {
   return (
     <>
       <div className="todoBox d-flex my-1 p-0">
-        <div className="col-5 titleBox">
-          <div className="title col-2">{id + "."}</div>
+        <div className="col-6  titleBox">
+          <div className="title col-1 col-sm-2">{id + "."}</div>
           <div className="title col-10">{title}</div>
         </div>
         <div
@@ -33,7 +33,6 @@ export default function Todo({ id, title, status }) {
           <i className="delBtn bi bi-trash3 text-danger"></i>
         </button>
       </div>
-      <hr />
     </>
   );
 }
