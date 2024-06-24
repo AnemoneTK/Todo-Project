@@ -37,7 +37,7 @@ export default function InputBox() {
           }
         }}
       >
-        เพิ่ม
+        สร้างรายการใหม่
       </button>
     </div>
   );

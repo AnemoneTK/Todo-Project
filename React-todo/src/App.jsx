@@ -28,9 +28,9 @@ export default function App() {
     <>
       <div className="warp container">
         <div className="box col-12 col-md-10 col-lg-10 col-xl-6 rounded-4">
-          <div className="appName mb-5">[React]-Todo App</div>
+          <div className="appName mb-3 mb-md-5">[React]-Todo App</div>
           <InputBox />
-          <TodoList todos={currentTodos} />
+          <TodoList todos={currentTodos} setTodosPerPage={setTodosPerPage} />
           <Pagination
             totalTodos={todos.length}
             todosPerPage={todosPerPage}

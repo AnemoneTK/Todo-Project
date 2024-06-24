@@ -1,3 +1,9 @@
 .todoList {
   height: 45dvh;
 }
+
+@media (max-height: 600px) {
+  .todoList {
+    height: 35dvh;
+  }
+}

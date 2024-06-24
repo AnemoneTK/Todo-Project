@@ -1,13 +1,21 @@
 .todoBox {
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+}
+.titleBox {
+  display: flex;
+  flex-direction: row;
 }
 .title {
   font-size: clamp(16px, 2vw, 22px);
+  text-wrap: wrap;
 }
 .btn {
   font-size: 23px;
   transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .btn:hover {
   transform: scale(1.2);
@@ -22,4 +30,8 @@
 .statusName {
   font-size: clamp(16px, 2vw, 20px);
   transition: all 0.3s;
+}
+
+.delBtn {
+  font-size: clamp(18px, 2vw, 22px);
 }

@@ -2,12 +2,15 @@ import { useState } from "react";
 import "../css/todo.css";
 import PropTypes from "prop-types";
 
-export default function Todo({ title, status }) {
+export default function Todo({ id, title, status }) {
   const [check, setCheck] = useState(status);
   return (
     <>
       <div className="todoBox d-flex my-1 p-0">
-        <div className="title col-4">{title}</div>
+        <div className="col-5 titleBox">
+          <div className="title col-2">{id + "."}</div>
+          <div className="title col-10">{title}</div>
+        </div>
         <div
           className="status col-2"
           onClick={(e) => {
@@ -26,8 +29,8 @@ export default function Todo({ title, status }) {
           />
           <div className="statusName">{check ? "Done" : "Waiting"}</div>
         </div>
-        <button className="btn col-2">
-          <i className="bi bi-trash3 text-danger"></i>
+        <button className="btn col-1">
+          <i className="delBtn bi bi-trash3 text-danger"></i>
         </button>
       </div>
       <hr />
@@ -36,7 +39,7 @@ export default function Todo({ title, status }) {
 }
 
 Todo.propTypes = {
-  key: PropTypes.number,
+  id: PropTypes.number,
   title: PropTypes.string,
   status: PropTypes.bool,
 };
