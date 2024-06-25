@@ -24,7 +24,7 @@ export default function Setting({
     if (!done && waiting) {
       setFilter("waiting");
     }
-  }, [done, waiting]);
+  }, [done, waiting, setFilter]);
 
   useEffect(() => {
     let handel = (e) => {
