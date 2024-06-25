@@ -10,7 +10,7 @@
   border: 2px solid var(--primary);
 }
 .hint {
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(16px, 2vw, 18px);
   transition: all 0.3s;
 }
 .addBtn {

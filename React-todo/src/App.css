@@ -19,12 +19,26 @@
   height: auto;
   padding: 30px 0px;
   border: 3px solid var(--primary);
-  position: relative;
 }
 
 @media (max-height: 700px) {
   .warp {
     height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .box {
+    padding: 20px 0px;
+    max-height: 100%;
+    min-height: auto;
+    height: auto;
+  }
+}
+
+@media (max-height: 400px) {
+  .warp {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

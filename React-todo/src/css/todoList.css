@@ -1,5 +1,14 @@
 .todoList {
-  height: 45dvh;
+  height: 40dvh;
+  z-index: 1;
+}
+.todoList.noData {
+  text-align: center;
+  display: flex;
+  padding-top: 3rem;
+  align-items: start;
+  justify-content: center;
+  font-size: clamp(24px, 2vw, 64px);
 }
 .isLoading {
   height: 45dvh;
@@ -8,20 +17,28 @@
   justify-content: center;
 }
 
-@media (max-height: 800px) {
+@media (max-height: 700px) {
   .todoList {
-    height: 35dvh;
+    height: 33dvh;
+  }
+  .todoList.noData {
+    padding-top: 1rem;
+    height: 33dvh;
   }
   .isLoading {
-    height: 35dvh;
+    height: 33dvh;
   }
 }
 @media (max-height: 400px) {
   .todoList {
-    height: 20dvh;
+    height: 17dvh;
+  }
+  .todoList.noData {
+    padding-top: 1rem;
+    height: 17dvh;
   }
   .isLoading {
-    height: 20dvh;
+    height: 17dvh;
     display: flex;
     align-items: center;
     justify-content: center;

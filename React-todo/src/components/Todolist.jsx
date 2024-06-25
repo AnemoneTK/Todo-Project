@@ -4,7 +4,13 @@ import "../css/todoList.css";
 import PropTypes from "prop-types";
 import { ThreeDots } from "react-loader-spinner";
 
-export default function TodoList({ todos, setTodosPerPage, isLoading }) {
+export default function TodoList({
+  todos,
+  totalTodos,
+  setTodosPerPage,
+  isLoading,
+  setIsLoading,
+}) {
   const [height, setHeight] = useState(window.innerHeight);
 
   useEffect(() => {
@@ -23,12 +29,14 @@ export default function TodoList({ todos, setTodosPerPage, isLoading }) {
     const calculateTodosPerPage = () => {
       if (height < 400) {
         return 1;
-      } else if (height >= 400 && height <= 600) {
+      } else if (height >= 400 && height <= 500) {
         return 2;
-      } else if (height > 600 && height <= 800) {
+      } else if (height >= 500 && height <= 700) {
         return 3;
-      } else if (height > 800 && height < 900) {
+      } else if (height > 700 && height <= 800) {
         return 4;
+      } else if (height > 800 && height < 900) {
+        return 5;
       } else if (height > 900 && height < 1000) {
         return 5;
       } else if (height >= 1000 && height < 1100) {
@@ -47,8 +55,8 @@ export default function TodoList({ todos, setTodosPerPage, isLoading }) {
 
   return (
     <>
-      {!isLoading && (
-        <div className="todoList col-10 mt-3 mt-sm-3 mt-lg-4 mb-1 mb-sm-1 mb-md-2 mb-lg-3">
+      {!isLoading && totalTodos > 0 && (
+        <div className="todoList col-10 mt-1 mt-sm-1 mt-lg-2 mb-1 mb-sm-1 mb-md-2 mb-lg-3">
           {todos.map((todo) => {
             return (
               <Todo
@@ -56,9 +64,16 @@ export default function TodoList({ todos, setTodosPerPage, isLoading }) {
                 id={todo.id}
                 title={todo.name}
                 status={todo.status}
+                setIsLoading={setIsLoading}
               />
             );
           })}
+        </div>
+      )}
+
+      {!isLoading && totalTodos == 0 && (
+        <div className="todoList noData col-10 mt-1 mt-sm-1 mt-lg-2 mb-1 mb-sm-1 mb-md-2 mb-lg-3">
+          ... no data ...
         </div>
       )}
 
@@ -81,6 +96,8 @@ export default function TodoList({ todos, setTodosPerPage, isLoading }) {
 
 TodoList.propTypes = {
   todos: PropTypes.array.isRequired,
+  totalTodos: PropTypes.number,
   setTodosPerPage: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
+  setIsLoading: PropTypes.func.isRequired,
 };

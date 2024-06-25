@@ -20,7 +20,7 @@ export default function Pagination({
         Previous
       </button>
       <span>
-        {isLoading ? 0 : currentPage} of {totalPage}
+        {isLoading ? 0 : currentPage} of {totalPage == 0 ? "1" : totalPage}
       </span>
       <button
         className="col-3 rounded-2"

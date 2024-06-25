@@ -2,49 +2,89 @@ import InputBox from "./components/InputBox";
 import "./App.css";
 import TodoList from "./components/Todolist";
 import Pagination from "./components/Pagination";
+import Setting from "./components/Setting";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Setting from "./components/Setting";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const fetchTodos = async () => {
-      const response = await axios.get(
-        "https://6662b06962966e20ef0985b2.mockapi.io/todos"
-      );
-      setTodos(response.data);
 
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 100);
-    };
-    fetchTodos();
-  }, []);
+  const [sortOrder, setSortOrder] = useState("asc");
+  const sortTodos = (todos, order) => {
+    return todos.sort((a, b) => {
+      if (order === "asc") {
+        return a.id - b.id;
+      } else {
+        return b.id - a.id;
+      }
+    });
+  };
+  const sortedTodos = sortTodos([...todos], sortOrder);
+
+  const [filter, setFilter] = useState("all");
+  const filterTodos = (todos, filter) => {
+    return todos.filter((todo) => {
+      if (filter == "all") {
+        return todo;
+      }
+      if (filter == "waiting") {
+        return todo.status == false;
+      }
+      if (filter == "done") {
+        return todo.status == true;
+      }
+    });
+  };
+  const filteredTodos = filterTodos(sortedTodos, filter);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [todosPerPage, setTodosPerPage] = useState(5);
 
   const indexOfLastTodo = currentPage * todosPerPage;
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-  const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+  const currentTodos = filteredTodos.slice(indexOfFirstTodo, indexOfLastTodo);
+
+  const fetchTodos = async () => {
+    const response = await axios.get(
+      "https://6662b06962966e20ef0985b2.mockapi.io/todos"
+    );
+    setTodos(response.data);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 100);
+  };
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
+  useEffect(() => {
+    fetchTodos();
+  }, [isLoading]);
 
   return (
     <>
       <div className="warp container">
         <div className="box col-12 col-md-10 col-lg-10 col-xl-6 rounded-4">
-          {/* <Setting /> */}
-          <div className="appName mb-1 mb-sm-3 mb-md-5">[React]-Todo App</div>
-          <InputBox />
-          <div className="mt-3 mb-0">จัดเรียง</div>
+          <div className="appName mb-1 mb-sm-1 mb-md-3">[React]-Todo App</div>
+          <InputBox setIsLoading={setIsLoading} />
+          <Setting
+            sortOrder={sortOrder}
+            setSortOrder={setSortOrder}
+            filter={filter}
+            setFilter={setFilter}
+          />
           <TodoList
             todos={currentTodos}
+            totalTodos={filteredTodos.length}
             setTodosPerPage={setTodosPerPage}
             isLoading={isLoading}
+            setIsLoading={setIsLoading}
           />
           <Pagination
-            totalTodos={todos.length}
+            totalTodos={filteredTodos.length}
             todosPerPage={todosPerPage}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}

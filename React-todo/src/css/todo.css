@@ -1,11 +1,13 @@
 .todoBox {
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--primary);
+  border-bottom: 1px solid #14121f5b;
+  color: var(--primary);
 }
 .titleBox {
   display: flex;
   flex-direction: row;
+  padding: 0.8rem 0px;
 }
 .title {
   font-size: clamp(16px, 2vw, 22px);
@@ -35,4 +37,12 @@
 
 .delBtn {
   font-size: clamp(18px, 2vw, 22px);
+}
+input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+  accent-color: var(--primary);
 }
