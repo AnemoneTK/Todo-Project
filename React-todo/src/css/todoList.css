@@ -16,8 +16,19 @@
   align-items: center;
   justify-content: center;
 }
-
-@media (max-height: 700px) {
+@media (min-height: 1000px) {
+  .todoList {
+    height: 37dvh;
+  }
+  .todoList.noData {
+    padding-top: 1rem;
+    height: 36dvh;
+  }
+  .isLoading {
+    height: 36dvh;
+  }
+}
+@media (max-height: 750px) {
   .todoList {
     height: 33dvh;
   }
@@ -27,6 +38,21 @@
   }
   .isLoading {
     height: 33dvh;
+  }
+}
+@media (max-height: 450px) {
+  .todoList {
+    height: 27dvh;
+  }
+  .todoList.noData {
+    padding-top: 1rem;
+    height: 27dvh;
+  }
+  .isLoading {
+    height: 27dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 @media (max-height: 400px) {

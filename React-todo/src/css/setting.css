@@ -46,6 +46,7 @@ button.Up:hover {
   height: 2.5rem;
   outline: none;
   border: 0;
+  border-radius: 0;
   border-bottom: 1px solid var(--primary);
   transition: all 0.3s;
   font-size: clamp(16px, 2vw, 22px);

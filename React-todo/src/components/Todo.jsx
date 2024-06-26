@@ -1,7 +1,26 @@
+import { useEffect, useRef } from "react";
 import "../css/todo.css";
 import PropTypes from "prop-types";
 
-export default function Todo({ id, title, status, setIsLoading }) {
+export default function Todo({
+  id,
+  title,
+  status,
+  setIsLoading,
+  setTodoHeight,
+}) {
+  const todoRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setTodoHeight(todoRef.current.clientHeight);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [setTodoHeight]);
+
   const updateStatus = async () => {
     setIsLoading(true);
     await fetch(`https://6662b06962966e20ef0985b2.mockapi.io/todos/${id}`, {
@@ -30,7 +49,7 @@ export default function Todo({ id, title, status, setIsLoading }) {
   };
 
   return (
-    <div className="todoBox d-flex my-1 p-0">
+    <div className="todoBox d-flex my-1 p-0" ref={todoRef}>
       <div className="col-6 titleBox">
         <div className="title col-2 col-sm-2 text-center">{id + "."}</div>
         <div className="title col-10">{title}</div>
@@ -68,4 +87,5 @@ Todo.propTypes = {
   title: PropTypes.string.isRequired,
   status: PropTypes.bool.isRequired,
   setIsLoading: PropTypes.func.isRequired,
+  setTodoHeight: PropTypes.func.isRequired,
 };

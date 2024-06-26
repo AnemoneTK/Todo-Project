@@ -20,7 +20,14 @@
   padding: 30px 0px;
   border: 3px solid var(--primary);
 }
+@media (min-height: 1000px) {
+  .box {
+    max-height: 80dvh;
+    min-height: 50dvh;
 
+    height: auto;
+  }
+}
 @media (max-height: 700px) {
   .warp {
     height: 100dvh;
