@@ -38,6 +38,13 @@ export default function InputBox({ setIsLoading }) {
           setHint(false);
         }}
         maxLength={12}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && text.length > 0) {
+            addTodo();
+          } else if (e.key === "Enter" && text.length == 0) {
+            setHint(true);
+          }
+        }}
       />
       <div
         className={`hint text-center text-danger mb-1 ${
