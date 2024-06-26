@@ -10,6 +10,7 @@ export default function App() {
   const [todos, setTodos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Sort
   const [sortOrder, setSortOrder] = useState("asc");
   const sortTodos = (todos, order) => {
     return todos.sort((a, b) => {
@@ -20,8 +21,8 @@ export default function App() {
       }
     });
   };
-  const sortedTodos = sortTodos([...todos], sortOrder);
 
+  // Filter
   const [filter, setFilter] = useState("all");
   const filterTodos = (todos, filter) => {
     return todos.filter((todo) => {
@@ -36,14 +37,32 @@ export default function App() {
       }
     });
   };
-  const filteredTodos = filterTodos(sortedTodos, filter);
 
+  // Search
+  const [search, setSearch] = useState("");
+  const searchTodos = (todos, search) => {
+    // if (!search) return todos;
+    // return todos.filter((todo) => {
+    //   todo.name.toLowerCase().includes(search);
+    // });
+    return todos.filter((todo) => {
+      return search.toLowerCase() == ""
+        ? todo
+        : todo.name.toLowerCase().includes(search.toLowerCase());
+    });
+  };
+
+  const sortedTodos = sortTodos([...todos], sortOrder);
+  const filteredTodos = filterTodos(sortedTodos, filter);
+  const searchedTodos = searchTodos(filteredTodos, search);
+
+  //Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [todosPerPage, setTodosPerPage] = useState(5);
 
   const indexOfLastTodo = currentPage * todosPerPage;
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-  const currentTodos = filteredTodos.slice(indexOfFirstTodo, indexOfLastTodo);
+  const currentTodos = searchedTodos.slice(indexOfFirstTodo, indexOfLastTodo);
 
   const fetchTodos = async () => {
     const response = await axios.get(
@@ -75,16 +94,18 @@ export default function App() {
             setSortOrder={setSortOrder}
             filter={filter}
             setFilter={setFilter}
+            search={search}
+            setSearch={setSearch}
           />
           <TodoList
             todos={currentTodos}
-            totalTodos={filteredTodos.length}
+            totalTodos={searchedTodos.length}
             setTodosPerPage={setTodosPerPage}
             isLoading={isLoading}
             setIsLoading={setIsLoading}
           />
           <Pagination
-            totalTodos={filteredTodos.length}
+            totalTodos={searchedTodos.length}
             todosPerPage={todosPerPage}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}

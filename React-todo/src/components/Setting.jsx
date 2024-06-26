@@ -7,6 +7,8 @@ export default function Setting({
   setSortOrder,
   filter,
   setFilter,
+  search,
+  setSearch,
 }) {
   const [open, setOpen] = useState(false);
   const boxRef = useRef();
@@ -53,6 +55,19 @@ export default function Setting({
             <i className="sortIcon Up bi bi-sort-numeric-up p-0 m-0"></i>
           )}
         </button>
+
+        <div className="searchBox col">
+          <input
+            type="text"
+            className="searchBar col-12 "
+            placeholder="ค้นหา"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <span className="borderEffect"></span>
+          <i className="searchIcon bi bi-search pe-2"></i>
+        </div>
+
         <div className="col-4 col-sm-4 col-md-3 position-relative" ref={boxRef}>
           <button
             className={`filterBtn ${open ? "open" : ""}  col-12 rounded-2`}
@@ -116,4 +131,6 @@ Setting.propTypes = {
   setSortOrder: PropTypes.func.isRequired,
   filter: PropTypes.string,
   setFilter: PropTypes.func.isRequired,
+  search: PropTypes.string,
+  setSearch: PropTypes.func.isRequired,
 };

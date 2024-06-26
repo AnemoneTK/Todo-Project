@@ -1,6 +1,7 @@
 .setting {
   display: flex;
   flex-direction: row;
+  gap: 10px;
   align-items: center;
   justify-content: space-between;
   max-height: 3rem;
@@ -15,16 +16,76 @@
   background-color: #ffff;
   border: 2px solid var(--primary);
 }
+.sortBtn:hover {
+  background-color: #ffff;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
 .sortIcon {
   font-size: clamp(18px, 2vw, 24px);
   font-weight: 900;
 }
-
 button.Up {
   background-color: var(--primary);
   color: #ffff;
 }
+button.Up:hover {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  color: #ffff;
+}
 
+.searchBox {
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.searchBar {
+  height: 2.5rem;
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid var(--primary);
+  transition: all 0.3s;
+  font-size: clamp(16px, 2vw, 22px);
+  padding: 0px 10px;
+}
+.borderEffect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 100%;
+  background-color: var(--primary);
+  display: flex;
+  transition: all 0.3s;
+}
+.searchBar:focus {
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid var(--primary);
+}
+.searchBar:focus ~ .searchIcon {
+  transform: scale(1.2);
+}
+.searchBar:focus ~ .borderEffect {
+  width: 100%;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2.5rem;
+  aspect-ratio: 1/1;
+  font-size: clamp(16px, 2vw, 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
 .filterBtn {
   height: 2.5rem;
   display: flex;
