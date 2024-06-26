@@ -47,7 +47,7 @@ export default function InputBox({ setIsLoading }) {
         }}
       />
       <div
-        className={`hint text-center text-danger mb-1 ${
+        className={`hint text-center text-danger m-0 p-0 ${
           hint ? "" : "invisible"
         }`}
       >

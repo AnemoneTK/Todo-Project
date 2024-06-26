@@ -11,7 +11,7 @@ export default function Pagination({
   const totalPage = Math.ceil(totalTodos / todosPerPage);
 
   return (
-    <div className="pagination col-10 d-flex mt-1">
+    <div className="pagination col-10 d-flex mt-3">
       <button
         className="col-3 rounded-2"
         onClick={() => setCurrentPage(currentPage - 1)}

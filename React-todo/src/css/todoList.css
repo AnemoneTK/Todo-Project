@@ -11,7 +11,7 @@
   font-size: clamp(24px, 2vw, 64px);
 }
 .isLoading {
-  height: 45dvh;
+  height: 40dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,10 +22,10 @@
   }
   .todoList.noData {
     padding-top: 1rem;
-    height: 36dvh;
+    height: 37dvh;
   }
   .isLoading {
-    height: 36dvh;
+    height: 37dvh;
   }
 }
 @media (max-height: 750px) {
@@ -40,22 +40,22 @@
     height: 33dvh;
   }
 }
-@media (max-height: 450px) {
+@media (max-height: 510px) {
   .todoList {
-    height: 27dvh;
+    height: 25dvh;
   }
   .todoList.noData {
     padding-top: 1rem;
-    height: 27dvh;
+    height: 25dvh;
   }
   .isLoading {
-    height: 27dvh;
+    height: 25dvh;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 }
-@media (max-height: 400px) {
+@media (max-height: 460px) {
   .todoList {
     height: 17dvh;
   }
