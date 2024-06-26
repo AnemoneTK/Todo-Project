@@ -50,6 +50,8 @@ button.Up:hover {
   transition: all 0.3s;
   font-size: clamp(16px, 2vw, 22px);
   padding: 0px 10px;
+  z-index: 2;
+  background-color: transparent;
 }
 .borderEffect {
   position: absolute;
@@ -85,6 +87,7 @@ button.Up:hover {
   align-items: center;
   justify-content: center;
   transition: all 0.3s;
+  z-index: 0;
 }
 .filterBtn {
   height: 2.5rem;
