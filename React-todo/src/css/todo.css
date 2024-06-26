@@ -33,6 +33,7 @@
 .statusName {
   font-size: clamp(16px, 2vw, 20px);
   transition: all 0.3s;
+  display: block;
 }
 
 .delBtn {
@@ -45,4 +46,10 @@ input[type="checkbox"] {
   grid-template-columns: 1em auto;
   gap: 0.5em;
   accent-color: var(--primary);
+}
+
+@media (max-width: 760px) {
+  .statusName {
+    display: none;
+  }
 }

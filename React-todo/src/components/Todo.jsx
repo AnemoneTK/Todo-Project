@@ -50,12 +50,12 @@ export default function Todo({
 
   return (
     <div className="todoBox d-flex my-1 p-0" ref={todoRef}>
-      <div className="col-6 titleBox">
+      <div className="col-8 col-sm-8 col-md-6 col-lg-6 titleBox">
         <div className="title col-2 col-sm-2 text-center">{id + "."}</div>
         <div className="title col-10">{title}</div>
       </div>
       <div
-        className="status col-2"
+        className="status col-1 col-sm-1 col-md-2 col-lg-2"
         onClick={() => {
           updateStatus();
         }}
