@@ -46,7 +46,7 @@ export default function App() {
     //   todo.name.toLowerCase().includes(search);
     // });
     return todos.filter((todo) => {
-      return search.toLowerCase() == ""
+      return search == ""
         ? todo
         : todo.name.toLowerCase().includes(search.toLowerCase());
     });

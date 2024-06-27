@@ -68,7 +68,9 @@ export default function Todo({
             updateStatus;
           }}
         />
-        <div className="statusName">{status ? "Done" : "Waiting"}</div>
+        <div className="statusName checkboxStatus">
+          {status ? "Done" : "Waiting"}
+        </div>
       </div>
       <button
         className="btn col-1"
