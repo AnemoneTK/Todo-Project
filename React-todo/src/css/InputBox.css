@@ -1,0 +1,47 @@
+.inputWarp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputBox {
+  text-align: center;
+  padding: 3px 0px;
+  font-size: clamp(18px, 3vw, 24px);
+  outline: none;
+  border: 2px solid var(--primary);
+}
+.hint {
+  font-size: clamp(16px, 2vw, 18px);
+  transition: all 0.3s;
+}
+.addBtn {
+  cursor: pointer;
+  border: 2px solid var(--primary);
+  background-color: var(--primary);
+  color: #ffff;
+  font-size: clamp(16px, 3vw, 20px);
+  transition: all 0.3s;
+  padding: 3px 0px;
+  font-weight: 800;
+}
+.addBtn.disabled {
+  opacity: 0.7;
+}
+.addBtn.disabled:hover {
+  opacity: 0.7;
+  border: 2px solid var(--primary);
+  background-color: var(--primary);
+  color: #ffff;
+}
+.addBtn.disabled:active {
+  transform: scale(1);
+}
+
+.addBtn:hover {
+  border: 2px solid var(--primary);
+  background-color: #ffff;
+  color: var(--primary);
+}
+.addBtn:active {
+  transform: scale(0.9);
+}

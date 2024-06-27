@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+
+:root {
+  --primary: #14121f;
+}
+* {
+  font-family: "Itim", cursive;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}

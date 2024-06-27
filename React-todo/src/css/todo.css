@@ -1,0 +1,55 @@
+.todoBox {
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #14121f5b;
+  color: var(--primary);
+}
+.titleBox {
+  display: flex;
+  flex-direction: row;
+  padding: 0.8rem 0px;
+}
+.title {
+  font-size: clamp(16px, 2vw, 22px);
+  text-wrap: wrap;
+}
+.btn {
+  font-size: 23px;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn:hover {
+  transform: scale(1.2);
+}
+
+.status {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.statusName {
+  font-size: clamp(16px, 2vw, 20px);
+  transition: all 0.3s;
+  display: block;
+}
+
+.delBtn {
+  font-size: clamp(18px, 2vw, 22px);
+}
+input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+  accent-color: var(--primary);
+}
+
+@media (max-width: 760px) {
+  .checkboxStatus {
+    display: none;
+  }
+}

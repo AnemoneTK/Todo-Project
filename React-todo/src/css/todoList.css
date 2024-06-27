@@ -1,0 +1,72 @@
+.todoList {
+  height: 40dvh;
+  z-index: 1;
+}
+.todoList.noData {
+  text-align: center;
+  display: flex;
+  padding-top: 3rem;
+  align-items: start;
+  justify-content: center;
+  font-size: clamp(24px, 2vw, 64px);
+}
+.isLoading {
+  height: 40dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-height: 1000px) {
+  .todoList {
+    height: 37dvh;
+  }
+  .todoList.noData {
+    padding-top: 1rem;
+    height: 37dvh;
+  }
+  .isLoading {
+    height: 37dvh;
+  }
+}
+@media (max-height: 750px) {
+  .todoList {
+    height: 33dvh;
+  }
+  .todoList.noData {
+    padding-top: 1rem;
+    height: 33dvh;
+  }
+  .isLoading {
+    height: 33dvh;
+  }
+}
+@media (max-height: 510px) {
+  .todoList {
+    height: 25dvh;
+  }
+  .todoList.noData {
+    padding-top: 1rem;
+    height: 25dvh;
+  }
+  .isLoading {
+    height: 25dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-height: 460px) {
+  .todoList {
+    height: 17dvh;
+  }
+  .todoList.noData {
+    padding-top: 1rem;
+    height: 17dvh;
+  }
+  .isLoading {
+    height: 17dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
