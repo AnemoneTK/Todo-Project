@@ -26,7 +26,7 @@ export default function Pagination({
       >
         Previous
       </button>
-      <span className="col text-center">
+      <span className="col-3 col-sm-3 col-md-2 text-center">
         {isLoading ? 0 : currentPage} of {totalPage == 0 ? "1" : totalPage}
       </span>
       <button
