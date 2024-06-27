@@ -6,7 +6,7 @@
 .inputBox {
   text-align: center;
   padding: 3px 0px;
-  font-size: clamp(20px, 3vw, 28px);
+  font-size: clamp(18px, 3vw, 24px);
   outline: none;
   border: 2px solid var(--primary);
 }
@@ -19,9 +19,9 @@
   border: 2px solid var(--primary);
   background-color: var(--primary);
   color: #ffff;
-  font-size: clamp(18px, 3vw, 20px);
+  font-size: clamp(16px, 3vw, 20px);
   transition: all 0.3s;
-  padding: 5px 0px;
+  padding: 3px 0px;
   font-weight: 800;
 }
 .addBtn.disabled {

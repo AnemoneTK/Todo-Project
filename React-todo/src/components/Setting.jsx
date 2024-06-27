@@ -60,7 +60,7 @@ export default function Setting({
           <input
             type="text"
             className="searchBar col-12 "
-            placeholder="ค้นหา"
+            placeholder="Search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

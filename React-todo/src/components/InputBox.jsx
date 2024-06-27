@@ -31,7 +31,7 @@ export default function InputBox({ setIsLoading }) {
       <input
         className="inputBox rounded-3"
         type="text"
-        placeholder="สร้างรายการใหม่"
+        placeholder="Add a new item"
         value={text}
         onChange={(e) => {
           setText(e.target.value);
@@ -51,10 +51,10 @@ export default function InputBox({ setIsLoading }) {
           hint ? "" : "invisible"
         }`}
       >
-        * กรุณาพิมพ์ข้อความเพื่อเพิ่มรายการ *
+        * Please enter text to add an item *
       </div>
       <button
-        className={`addBtn rounded-3 col-6 ${
+        className={`addBtn rounded-3 col-5 ${
           text.length > 0 ? "" : "disabled"
         }`}
         onClick={(e) => {
@@ -67,7 +67,7 @@ export default function InputBox({ setIsLoading }) {
           }
         }}
       >
-        สร้างรายการใหม่
+        Add a new item
       </button>
     </div>
   );
