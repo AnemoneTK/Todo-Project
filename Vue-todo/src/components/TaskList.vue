@@ -1,13 +1,9 @@
 <template lang="">
-    <div>
-        
+    <div class="h-50 w-50">
+        <Task/>
     </div>
 </template>
-<script>
+<script >
 export default {
-    
 }
 </script>
-<style lang="">
-    
-</style>
