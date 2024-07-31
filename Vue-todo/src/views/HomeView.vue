@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import { useTodoStore } from "../stores/todos";
 import { RouterLink } from "vue-router";
+import Loading from "vue-loading-overlay";
 
 const todoStore = useTodoStore();
 const todoText = ref("");
@@ -62,7 +63,14 @@ const deleteTodo = async (id) => {
 
     <div>
       <div v-if="isLoading">
-        <h1>Loading...</h1>
+        <loading
+          :active.sync="isLoading"
+          :is-full-page="true"
+          color="#007bff"
+          opacity="0"
+          loader="dots"
+        >
+        </loading>
       </div>
       <div v-else>
         <ul>
