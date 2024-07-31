@@ -7,7 +7,7 @@ export const useTodoStore = defineStore("todo", {
   state: () => ({
     todoList: [],
     selected: {},
-    status: ["Done", "Waiting"],
+    status: [true, false],
   }),
   actions: {
     async getTodos() {
@@ -34,7 +34,7 @@ export const useTodoStore = defineStore("todo", {
         status: false,
       };
       try {
-        const res = await axios.post(`${URL}/todos}`, data);
+        const res = await axios.post(`${URL}/todos`, data);
         console.log("add complete");
       } catch (error) {
         console.log(error);
@@ -43,7 +43,7 @@ export const useTodoStore = defineStore("todo", {
 
     async edit(editData, id) {
       try {
-        const res = await axios.put(`${URL}/todos}/${id}`, editData);
+        const res = await axios.put(`${URL}/todos/${id}`, editData);
         console.log("edit complete");
       } catch (error) {
         console.log(error);
@@ -52,7 +52,7 @@ export const useTodoStore = defineStore("todo", {
 
     async delete(id) {
       try {
-        const res = await axios.delete(`${URL}/todos}/${id}`);
+        const res = await axios.delete(`${URL}/todos/${id}`);
         console.log("delete complete");
       } catch (error) {
         console.log(error);
