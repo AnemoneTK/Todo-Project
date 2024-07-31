@@ -41,10 +41,6 @@ export default function App() {
   // Search
   const [search, setSearch] = useState("");
   const searchTodos = (todos, search) => {
-    // if (!search) return todos;
-    // return todos.filter((todo) => {
-    //   todo.name.toLowerCase().includes(search);
-    // });
     return todos.filter((todo) => {
       return search == ""
         ? todo
