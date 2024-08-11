@@ -3,10 +3,12 @@ import "./App.css";
 import TodoList from "./components/Todolist";
 import Pagination from "./components/Pagination";
 import Setting from "./components/Setting";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 
 export default function App() {
+  const apiKey = import.meta.env.VITE_API_KEY;
+
   const [todos, setTodos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -60,24 +62,22 @@ export default function App() {
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
   const currentTodos = searchedTodos.slice(indexOfFirstTodo, indexOfLastTodo);
 
-  const fetchTodos = async () => {
-    const response = await axios.get(
-      "https://6662b06962966e20ef0985b2.mockapi.io/todos"
-    );
+  const fetchTodos = useCallback(async () => {
+    const response = await axios.get(`https://${apiKey}.mockapi.io/todos`);
     setTodos(response.data);
 
     setTimeout(() => {
       setIsLoading(false);
     }, 100);
-  };
+  }, [apiKey]);
 
   useEffect(() => {
     fetchTodos();
-  }, []);
+  }, [fetchTodos]);
 
   useEffect(() => {
     fetchTodos();
-  }, [isLoading]);
+  }, [isLoading, fetchTodos]);
 
   return (
     <>

@@ -67,7 +67,6 @@ const deleteTodo = async (id) => {
           :active.sync="isLoading"
           :is-full-page="true"
           color="#007bff"
-          opacity="0"
           loader="dots"
         >
         </loading>

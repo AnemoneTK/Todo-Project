@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import { useTodoStore } from "../stores/todos";
 import { useRoute, RouterLink } from "vue-router";
+import Loading from "vue-loading-overlay";
 
 const todoStore = useTodoStore();
 const route = useRoute();
@@ -29,7 +30,15 @@ const saveEdit = async (dataEdit) => {
 </script>
 <template>
   <div>
-    <div v-if="!isLoading">Loading...</div>
+    <div v-if="isLoading">
+      <loading
+        :active.sync="isLoading"
+        :is-full-page="true"
+        color="#007bff"
+        loader="dots"
+      >
+      </loading>
+    </div>
     <div v-else>Edit id {{ todoId }}</div>
     <div>
       <RouterLink :to="{ name: 'home' }">
